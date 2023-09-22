@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3183c0a9-dcf0-4b52-b668-d23c2c0abc51"
+      }
+    },
+    "owner": "dagamdev"
   }
 }
