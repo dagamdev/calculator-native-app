@@ -7,21 +7,29 @@ interface ButtonProps {
   text: string
   isBlue?: boolean
   isGray?: boolean
+  double?: boolean
 }
 
-export default function Button ({ onPress, text, isBlue, isGray }: ButtonProps) {
+export default function Button ({ onPress, text, isBlue, isGray, double }: ButtonProps) {
   const { theme } = useTheme()
 
   return (
-    <TouchableOpacity onPress={onPress} style={
+    <TouchableOpacity onPress={onPress} style={[
       isBlue === true
         ? Styles.btnBlue
         : isGray === true
           ? Styles.btnGray
           : theme === 'light'
             ? Styles.btnLight
-            : Styles.btnDark
-    }>
+            : Styles.btnDark,
+      double === true
+        ? {
+            width: 156
+          }
+        : {
+            width: 70
+          }
+    ]}>
       <Text style={isBlue === true || isGray === true
         ? Styles.smallTextDark
         : theme === 'light'
