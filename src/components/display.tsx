@@ -6,8 +6,6 @@ import CustomText from './custom-text'
 export default function Display () {
   const { targetNumber, previousNumber, operation, result, finalResult } = useCalculo()
 
-  console.log(finalResult)
-
   return (
     <View style={{
       flex: 2,
