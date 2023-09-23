@@ -23,13 +23,17 @@ export default function Keyboard () {
   }
 
   const handleOperationPress = (buttonValue: string) => {
-    setOperation(buttonValue)
-    if (previousNumber === undefined) {
-      setPreviousNumber(targetNumber)
-    } else if (previousNumber !== 0) {
-      setPreviousNumber(result)
+    if (buttonValue === '+/-') {
+      setTargetNumber(tn => tn * -1)
+    } else {
+      setOperation(buttonValue)
+      if (previousNumber === undefined) {
+        setPreviousNumber(targetNumber)
+      } else if (previousNumber !== 0) {
+        setPreviousNumber(result)
+      }
+      setTargetNumber(0)
     }
-    setTargetNumber(0)
   }
 
   const clearAll = () => {
@@ -63,8 +67,8 @@ export default function Keyboard () {
     <View style={{ alignItems: 'center', paddingVertical: 18 }}>
       <View style={Styles.row}>
         <Button text='C' isGray onPress={clearAll} />
-        <Button text='+/-' isGray onPress={() => { handleOperationPress('+/-') }} />
-        <Button text='%' isGray onPress={() => { handleOperationPress('%') }} />
+        <Button text='+/-' isGray double onPress={() => { handleOperationPress('+/-') }} />
+        {/* <Button text='%' isGray onPress={() => { handleOperationPress('%') }} /> */}
         <Button text='÷' isBlue onPress={() => { handleOperationPress('÷') }} />
       </View>
       <View style={Styles.row}>
